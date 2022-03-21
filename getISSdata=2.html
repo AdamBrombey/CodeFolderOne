@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>getISS</title>
+</head>
+
+<body>
+    <h1>Where is the ISS?</h1>
+
+    <p>
+        latitude: <span id="lat"></span><br /> longitude: <span id="lon"></span>
+    </p>
+
+
+
+    <script>
+        const api_url = "https://api.wheretheiss.at/v1/satellites"
+        async function getISS() {
+            const response = await fetch(api_url);
+            const data = await response.json();
+            const {
+                latitude,
+                longitude
+            } = data;
+
+            document.getElementById('lat').textContent = latitude;
+            document.getElementById('lon').textContent = longitude;
+            console.log(data.latitude);
+            console.log(data.longitude);
+        }
+
+        getISS();
+    </script>
+    <!-- NO DATA  -->
+    <P>
+        <h2>Where is the ISS?</h2>
+        <div>End points, /v1/satellites/25544</div>
+        <!-- <br>https://api.wheretheiss.at/v1/satellites/25544<br> -->
+        <!-- 
+     <br>   [
+   <br> {
+   <br> "name": "iss",
+   <br> "id": 25544
+    <br>}
+   <br>]
+     -->
+
+        <p>
+            latitude: <span id="lAt"></span><br /> longitude: <span id="lOn"></span>
+        </p>
+        <script>
+            const api_Url = "https://api.wheretheiss.at/v1/satellites/25544"
+            async function getISS() {
+                const response = await fetch(api_Url);
+                const data = await response.json();
+                const {
+                    latitude,
+                    longitude
+                } = data;
+
+                document.getElementById('lAt').textContent = latitude;
+                document.getElementById('lOn').textContent = longitude;
+                console.log(data.latitude);
+                console.log(data.longitude);
+            }
+
+            getISS();
+        </script>
+
+
+    </P>
+    <!-- 
+    <p>
+        <b>Try with Fetch()</b>
+        <br>
+
+    </p>
+
+    <p>
+        latitude: <span id="laT"></span><br /> longitude: <span id="loN"></span>
+    </p>
+    <script>
+        const fetch("https://api.wheretheiss.at/v1/satellites/25544"):
+            async function getISS() {
+                const response = await fetch(api_Url);
+                const data = await response.json();
+                const {
+                    latitude,
+                    longitude
+                } = data;
+
+                document.getElementById('laT').textContent = latitude;
+                document.getElementById('loN').textContent = longitude;
+                console.log(data.latitude);
+                console.log(data.longitude);
+            }
+
+        getISS();
+    </script> -->
+
+
+
+</body>
+
+</html>
